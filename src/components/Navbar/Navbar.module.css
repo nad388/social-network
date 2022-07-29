@@ -5,13 +5,16 @@
   border-radius: 8px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.nav a {
-  text-decoration: none;
+.item {
+  cursor: pointer;
   color: rgb(1, 5, 68);
 }
-.nav a:hover {
-  color: rgb(43, 107, 226)
+.active {
+  color:rgb(172, 40, 199);
 }
 .settings {
   margin-top: 20px;
+}
+.item:hover {
+  color: rgb(43, 107, 226)
 }
