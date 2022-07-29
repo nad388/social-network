@@ -1,0 +1,10 @@
+.logoHeader {
+  width: 50px;
+}
+.header {
+  grid-area: header;
+  padding: 7px;
+  background-color: rgba(47, 248, 248, 0.644);
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

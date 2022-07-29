@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './Profile.module.css';
 
 const Profile = () => {
   return (
-    <div className="content">
+    <div className={styles.content}>
       <div>
         <img
-          className="userAvatar"
+          className={styles.userAvatar}
           src="https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg"
           alt="userAvatar"
         />

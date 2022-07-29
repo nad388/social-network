@@ -1,0 +1,8 @@
+.content {
+  padding: 7px;
+  grid-area: content;
+}
+.userAvatar {
+  width: 150px;
+  border-radius: 50px;
+}
