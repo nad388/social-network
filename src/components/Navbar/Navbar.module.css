@@ -1,20 +1,22 @@
 .nav {
   grid-area: nav;
-  padding: 12px;
+  padding: 20px;
   background-color: rgba(47, 248, 248, 0.644);
   border-radius: 8px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.item {
+
+.item a {
   cursor: pointer;
   color: rgb(1, 5, 68);
+  text-decoration: none;
 }
-.active {
+.item a:hover {
+  color: rgb(43, 107, 226)
+}
+.item a.activeLink {
   color:rgb(172, 40, 199);
 }
 .settings {
   margin-top: 20px;
-}
-.item:hover {
-  color: rgb(43, 107, 226)
 }

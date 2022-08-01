@@ -1,0 +1,12 @@
+.dialog a {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(1, 5, 68);
+}
+.dialog a:hover {
+    color: rgb(43, 107, 226)
+}
+
+.dialog a.activeLink {
+    color:rgb(172, 40, 199);
+  }

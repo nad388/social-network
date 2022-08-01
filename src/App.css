@@ -9,3 +9,7 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 12px;
 }
+.appWrapperContent {
+  padding: 10px;
+  grid-area: content;
+}

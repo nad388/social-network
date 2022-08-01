@@ -1,18 +1,12 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
-import styles from './Profile.module.css';
+// import styles from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
   return (
-    <div className={styles.content}>
-      <div>
-        <img
-          className={styles.userAvatar}
-          src="https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg"
-          alt="userAvatar"
-        />
-      </div>
-      <div>ava + description</div>
+    <div>
+      <ProfileInfo />
       <MyPosts />
     </div>
   );
