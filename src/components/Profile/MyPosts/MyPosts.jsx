@@ -3,6 +3,13 @@ import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
+  let postsData = [
+    { id: 1, message: 'I am dead!?', likesCount: 5 },
+    { id: 2, message: 'Who killed Lora Palmer?', likesCount: 25 },
+  ];
+  let postsElements = postsData.map((p) => (
+    <Post message={p.message} likesCount={p.likesCount} key={p.id} />
+  ));
   return (
     <div className={styles.postsBlock}>
       <h3>My Posts</h3>
@@ -13,8 +20,7 @@ const MyPosts = (props) => {
         <button>Add post</button>
       </div>
       <div className={styles.posts}>
-        <Post message="Hello, I am Doppelganger!" likesCount="5" />
-        <Post message="Who killed Lora Palmer?" likesCount="25" />
+        <div>{postsElements}</div>
       </div>
     </div>
   );
