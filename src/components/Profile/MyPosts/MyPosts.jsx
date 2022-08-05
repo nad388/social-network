@@ -3,11 +3,8 @@ import styles from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  let postsData = [
-    { id: 1, message: 'I am dead!?', likesCount: 5 },
-    { id: 2, message: 'Who killed Lora Palmer?', likesCount: 25 },
-  ];
-  let postsElements = postsData.map((p) => (
+ 
+  let postsElements = props.postsData.map((p) => (
     <Post message={p.message} likesCount={p.likesCount} key={p.id} />
   ));
   return (
