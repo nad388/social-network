@@ -12,17 +12,23 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
-      let newPost = {
-        id: 3,
-        message: state.newPostText,
-        likesCount: 0,
+      return {
+        ...state,
+        newPostText: '',
+        postsData: [
+          ...state.postsData,
+          {
+            id: 3,
+            message: state.newPostText,
+            likesCount: 0,
+          },
+        ],
       };
-      state.postsData.push(newPost); // profilePage приходит под именем state
-      state.newPostText = ''; // очищаем поле в state
-      return state;
     case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
     default:
       return state;
   }
