@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.updateNewMessageTextActionCreator = exports.addMessageActionCreator = void 0;
+exports["default"] = exports.setUsersAC = exports.unfollowAC = exports.followAC = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -19,67 +19,47 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var ADD_MESSAGE = 'ADD_MESSAGE';
-var UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+var FOLLOW = 'FOLLOW';
+var UNFOLLOW = 'UNFOLLOW';
+var SET_USERS = 'SET_USERS';
 var initialState = {
-  dialogsData: [{
-    id: 1,
-    name: 'Laura Palmer'
-  }, {
-    id: 2,
-    name: 'Dale Cooper'
-  }, {
-    id: 3,
-    name: 'Liland Palmer'
-  }, {
-    id: 4,
-    name: 'Doppelganger'
-  }, {
-    id: 5,
-    name: 'Donna'
-  }, {
-    id: 6,
-    name: 'Lady with log'
-  }],
-  messagesData: [{
-    id: 1,
-    message: 'I am dead!?'
-  }, {
-    id: 2,
-    message: 'Who killed Laura Palmer?'
-  }, {
-    id: 3,
-    message: 'I killed my daughter!'
-  }, {
-    id: 4,
-    message: 'My name is Cooper.'
-  }, {
-    id: 5,
-    message: 'Where I am?'
-  }, {
-    id: 6,
-    message: 'My log always tells the truth.'
-  }],
-  newMessageText: ''
+  users: []
 };
 
-var dialogsReducer = function dialogsReducer() {
+var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case ADD_MESSAGE:
+    case FOLLOW:
       return _objectSpread({}, state, {
-        newMessageText: '',
-        messagesData: [].concat(_toConsumableArray(state.messagesData), [{
-          id: 7,
-          message: state.newMessageText
-        }])
+        users: state.users.map(function (u) {
+          if (u.id === action.userId) {
+            return _objectSpread({}, u, {
+              followed: true
+            });
+          }
+
+          return u;
+        })
       });
 
-    case UPDATE_NEW_MESSAGE_TEXT:
+    case UNFOLLOW:
       return _objectSpread({}, state, {
-        newMessageText: action.newTextMessage
+        users: state.users.map(function (u) {
+          if (u.id === action.userId) {
+            return _objectSpread({}, u, {
+              followed: false
+            });
+          }
+
+          return u;
+        })
+      });
+
+    case SET_USERS:
+      return _objectSpread({}, state, {
+        users: [].concat(_toConsumableArray(state.users), _toConsumableArray(action.users))
       });
 
     default:
@@ -87,21 +67,31 @@ var dialogsReducer = function dialogsReducer() {
   }
 };
 
-var addMessageActionCreator = function addMessageActionCreator() {
+var followAC = function followAC(userId) {
   return {
-    type: ADD_MESSAGE
+    type: FOLLOW,
+    userId: userId
   };
 };
 
-exports.addMessageActionCreator = addMessageActionCreator;
+exports.followAC = followAC;
 
-var updateNewMessageTextActionCreator = function updateNewMessageTextActionCreator(text) {
+var unfollowAC = function unfollowAC(userId) {
   return {
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newTextMessage: text
+    type: UNFOLLOW,
+    userId: userId
   };
 };
 
-exports.updateNewMessageTextActionCreator = updateNewMessageTextActionCreator;
-var _default = dialogsReducer;
+exports.unfollowAC = unfollowAC;
+
+var setUsersAC = function setUsersAC(users) {
+  return {
+    type: SET_USERS,
+    users: users
+  };
+};
+
+exports.setUsersAC = setUsersAC;
+var _default = usersReducer;
 exports["default"] = _default;

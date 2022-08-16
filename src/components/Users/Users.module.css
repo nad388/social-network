@@ -1,0 +1,42 @@
+.userPhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 200px 400px;
+    grid-template-rows: 150px;
+    margin-top: 5px;
+}
+
+.infoUser {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    padding-left: 10px;
+    align-items: center;
+    border: 2px solid rgba(110, 101, 101, 0.1) ;
+    border-radius: 10px;
+    
+}
+.userName, .userLocation {
+    display: grid;
+    gap: 10px;
+    color: gray;
+}
+
+.btn {
+    background-color:  rgba(47, 248, 248, 0.644);
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color: rgb(1, 5, 68);
+}
+.btn:hover {
+    background-color: rgb(1, 5, 68);
+    color: rgb(196, 253, 236);
+}

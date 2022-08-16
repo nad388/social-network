@@ -27,6 +27,16 @@ const Navbar = (props) => {
       </div>
       <div className={styles.item}>
         <NavLink
+          to="/users"
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : undefined
+          }
+        >
+          Users
+        </NavLink>
+      </div>
+      <div className={styles.item}>
+        <NavLink
           to="/news"
           className={({ isActive }) =>
             isActive ? styles.activeLink : undefined
@@ -35,6 +45,7 @@ const Navbar = (props) => {
           News
         </NavLink>
       </div>
+
       <div className={styles.item}>
         <NavLink
           to="/music"
