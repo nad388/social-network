@@ -18,7 +18,11 @@
     align-items: center;
     border: 2px solid rgba(110, 101, 101, 0.1) ;
     border-radius: 10px;
-    
+}
+.userPhotos {
+    display: grid;
+    justify-content: start;
+    justify-items: center;
 }
 .userName, .userLocation {
     display: grid;
@@ -28,7 +32,7 @@
 
 .btn {
     background-color:  rgba(47, 248, 248, 0.644);
-    width: 100px;
+    width: 80px;
     height: 30px;
     cursor: pointer;
     border-radius: 5px;

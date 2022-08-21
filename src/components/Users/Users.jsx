@@ -1,46 +1,15 @@
+import axios from 'axios';
 import React from 'react';
 import styles from './Users.module.css';
+import userAva from '../../assets/images/userAva.png';
 
 const Users = (props) => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        photoURL:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png',
-        followed: true,
-        fullName: 'Nadezhda',
-        status: 'I am Doppelganger!',
-        location: { country: 'Russia', city: 'Saint-Petersburg' },
-      },
-      {
-        id: 2,
-        photoURL:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png',
-        followed: false,
-        fullName: 'Laura',
-        status: 'I am dead!',
-        location: { country: 'USA', city: 'Twin Peaks' },
-      },
-      {
-        id: 3,
-        photoURL:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png',
-        followed: true,
-        fullName: 'Cooper',
-        status: 'Who killed Laura Palmer',
-        location: { country: 'USA', city: 'Twin Peaks' },
-      },
-      {
-        id: 4,
-        photoURL:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/800px-User-avatar.svg.png',
-        followed: false,
-        fullName: 'Doppelganger',
-        status: 'I am!',
-        location: { country: 'France', city: 'Paris' },
-      },
-    ]);
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      .then((response) => {
+        props.setUsers(response.data.items);
+      });
   }
 
   return (
@@ -50,7 +19,7 @@ const Users = (props) => {
           <div className={styles.userPhotos}>
             <div>
               <img
-                src={u.photoURL}
+                src={u.photos.small != null ? u.photos.small : userAva}
                 alt="avaUser"
                 className={styles.userPhoto}
               />
@@ -79,12 +48,12 @@ const Users = (props) => {
           </div>
           <div className={styles.infoUser}>
             <div className={styles.userName}>
-              <div>{u.fullName}</div>
+              <div>{u.name}</div>
               <div>{u.status}</div>
             </div>
             <div className={styles.userLocation}>
-              <div>{u.location.country}</div>
-              <div>{u.location.city}</div>
+              <div>{'u.location.country'}</div>
+              <div>{'u.location.city'}</div>
             </div>
           </div>
         </div>
