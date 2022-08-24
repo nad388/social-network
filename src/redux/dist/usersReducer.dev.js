@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.toggleIsFetchingAC = exports.setTotalUsersCountAC = exports.setCurrentPageAC = exports.setUsersAC = exports.unfollowAC = exports.followAC = void 0;
+exports["default"] = exports.toggleIsFetching = exports.setTotalUsersCount = exports.setCurrentPage = exports.setUsers = exports.unfollow = exports.follow = void 0;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -81,58 +81,58 @@ var usersReducer = function usersReducer() {
   }
 };
 
-var followAC = function followAC(userId) {
+var follow = function follow(userId) {
   return {
     type: FOLLOW,
     userId: userId
   };
 };
 
-exports.followAC = followAC;
+exports.follow = follow;
 
-var unfollowAC = function unfollowAC(userId) {
+var unfollow = function unfollow(userId) {
   return {
     type: UNFOLLOW,
     userId: userId
   };
 };
 
-exports.unfollowAC = unfollowAC;
+exports.unfollow = unfollow;
 
-var setUsersAC = function setUsersAC(users) {
+var setUsers = function setUsers(users) {
   return {
     type: SET_USERS,
     users: users
   };
 };
 
-exports.setUsersAC = setUsersAC;
+exports.setUsers = setUsers;
 
-var setCurrentPageAC = function setCurrentPageAC(currentPage) {
+var setCurrentPage = function setCurrentPage(currentPage) {
   return {
     type: SET_CURRENT_PAGE,
     currentPage: currentPage
   };
 };
 
-exports.setCurrentPageAC = setCurrentPageAC;
+exports.setCurrentPage = setCurrentPage;
 
-var setTotalUsersCountAC = function setTotalUsersCountAC(totalUsersCount) {
+var setTotalUsersCount = function setTotalUsersCount(totalUsersCount) {
   return {
     type: SET_TOTAL_USERS_COUNT,
     count: totalUsersCount
   };
 };
 
-exports.setTotalUsersCountAC = setTotalUsersCountAC;
+exports.setTotalUsersCount = setTotalUsersCount;
 
-var toggleIsFetchingAC = function toggleIsFetchingAC(isFetching) {
+var toggleIsFetching = function toggleIsFetching(isFetching) {
   return {
     type: TOGGLE_IS_FETCHING,
     isFetching: isFetching
   };
 };
 
-exports.toggleIsFetchingAC = toggleIsFetchingAC;
+exports.toggleIsFetching = toggleIsFetching;
 var _default = usersReducer;
 exports["default"] = _default;
