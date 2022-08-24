@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.setTotalUsersCountAC = exports.setCurrentPageAC = exports.setUsersAC = exports.unfollowAC = exports.followAC = void 0;
+exports["default"] = exports.toggleIsFetchingAC = exports.setTotalUsersCountAC = exports.setCurrentPageAC = exports.setUsersAC = exports.unfollowAC = exports.followAC = void 0;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -16,11 +16,13 @@ var UNFOLLOW = 'UNFOLLOW';
 var SET_USERS = 'SET_USERS';
 var SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 var SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+var TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 var initialState = {
   users: [],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: false
 };
 
 var usersReducer = function usersReducer() {
@@ -67,6 +69,11 @@ var usersReducer = function usersReducer() {
     case SET_TOTAL_USERS_COUNT:
       return _objectSpread({}, state, {
         totalUsersCount: action.count
+      });
+
+    case TOGGLE_IS_FETCHING:
+      return _objectSpread({}, state, {
+        isFetching: action.isFetching
       });
 
     default:
@@ -118,5 +125,14 @@ var setTotalUsersCountAC = function setTotalUsersCountAC(totalUsersCount) {
 };
 
 exports.setTotalUsersCountAC = setTotalUsersCountAC;
+
+var toggleIsFetchingAC = function toggleIsFetchingAC(isFetching) {
+  return {
+    type: TOGGLE_IS_FETCHING,
+    isFetching: isFetching
+  };
+};
+
+exports.toggleIsFetchingAC = toggleIsFetchingAC;
 var _default = usersReducer;
 exports["default"] = _default;
