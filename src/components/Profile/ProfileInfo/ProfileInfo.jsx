@@ -1,19 +1,24 @@
 import React from 'react';
+import Preloader from '../../common/Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
 
 const ProfileInfo = (props) => {
-  return (
-    <div>
+  if (!props.profile) {
+    return <Preloader />;
+  } else {
+    return (
       <div>
-        <img
-          className={styles.userAvatar}
-          src="https://previews.123rf.com/images/panyamail/panyamail1809/panyamail180900343/109879063-user-avatar-icon-sign-profile-symbol.jpg"
-          alt="userAvatar"
-        />
+        <div>
+          <img
+            className={styles.userAvatar}
+            src={props.profile.photos.large}
+            alt="userAvatar"
+          />
+        </div>
+        <div className={styles.descriptionBlock}>ava + description</div>
       </div>
-      <div className={styles.descriptionBlock}>ava + description</div>
-    </div>
-  );
+    );
+  }
 };
 
 export default ProfileInfo;
