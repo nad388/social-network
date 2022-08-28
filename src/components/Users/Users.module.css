@@ -45,7 +45,7 @@
     color: rgb(196, 253, 236);
 }
 
-span {
+.btnPages span {
     cursor: pointer;
     padding: 2px;
     margin: 2px;

@@ -17,7 +17,7 @@ const Users = (props) => {
 
   return (
     <div>
-      <div>
+      <div className={styles.btnPages}>
         {pages.map((p) => {
           return (
             <span

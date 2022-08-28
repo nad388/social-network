@@ -38,7 +38,7 @@ const Dialogs = (props) => {
           </div>
           <div>
             <button className={styles.btn} onClick={addMessage}>
-              Send message
+              Send
             </button>
           </div>
         </div>
