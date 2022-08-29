@@ -17,7 +17,10 @@ const ProfileInfo = (props) => {
           />
         </div>
         <div className={styles.descriptionBlock}>
-          <ProfileStatus status={'Hello Doppelganger'} />
+          <ProfileStatus
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
         </div>
       </div>
     );
