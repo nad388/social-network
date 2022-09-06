@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import {
   maxLengthCreator,
   minLengthCreator,
   required,
 } from '../../utils/validators/validators';
-import { Input } from '../common/FormsControls/FormsControls';
+import { createField, Input } from '../common/FormsControls/FormsControls';
 import styles from './Login.module.css';
 import style from '../common/FormsControls/FormsControls.module.css';
 import { login } from '../../redux/authReducer';
@@ -17,32 +17,33 @@ const minLength3 = minLengthCreator(3);
 const maxLengthPass16 = maxLengthCreator(16);
 const minLengthPass5 = minLengthCreator(5);
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
     <div>
-      <form onSubmit={props.handleSubmit}>
-        <div>
-          <Field
-            placeholder={'Email'}
-            component={Input}
-            name={'email'}
-            validate={[required, maxLength30, minLength3]}
-          />
-        </div>
-        <div>
-          <Field
-            placeholder={'Password'}
-            component={Input}
-            name={'password'}
-            type={'password'}
-            validate={[required, maxLengthPass16, minLengthPass5]}
-          />
-        </div>
-        <div>
-          <Field type={'checkbox'} component={'input'} name={'rememberMe'} />
-          remember me
-        </div>
-        {props.error && <div className={style.formSummaryError}>{props.error}</div>}
+      <form onSubmit={handleSubmit}>
+        {createField(
+          'Email',
+          'email',
+          [required, maxLength30, minLength3],
+          Input
+        )}
+        {createField(
+          'Password',
+          'password',
+          [required, maxLengthPass16, minLengthPass5],
+          Input,
+          { type: 'password' }
+        )}
+        {createField(
+          null,
+          'rememberMe',
+          [],
+          'input',
+          { type: 'checkbox' },
+          'rememberMe'
+        )}
+
+        {error && <div className={style.formSummaryError}>{error}</div>}
         <div>
           <button className={styles.btn}>Login</button>
         </div>

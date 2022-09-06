@@ -1,0 +1,10 @@
+.btnPages span {
+    cursor: pointer;
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid rgb(1, 5, 68);
+}
+.selectedPage {
+
+    font-weight: bold;
+}

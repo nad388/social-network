@@ -4,8 +4,8 @@ import styles from './ProfileInfo.module.css';
 // import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks ';
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+  if (!profile) {
     return <Preloader />;
   } else {
     return (
@@ -13,15 +13,12 @@ const ProfileInfo = (props) => {
         <div>
           <img
             className={styles.userAvatar}
-            src={props.profile.photos.large}
+            src={profile.photos.large}
             alt="userAvatar"
           />
         </div>
         <div className={styles.descriptionBlock}>
-          <ProfileStatusWithHooks
-            status={props.status}
-            updateStatus={props.updateStatus}
-          />
+          <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
         </div>
       </div>
     );
