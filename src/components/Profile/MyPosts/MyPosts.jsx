@@ -12,7 +12,7 @@ import Post from './Post/Post';
 const maxLength30 = maxLengthCreator(30);
 const minLength2 = minLengthCreator(2);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
   let postsElements = props.postsData.map((p) => (
     <Post message={p.message} likesCount={p.likesCount} key={p.id} />
   ));
@@ -40,7 +40,7 @@ const MyPosts = (props) => {
       <AddPostFormRedux onSubmit={addNewPost} />
     </div>
   );
-};
+});
 
 const AddPostForm = (props) => {
   return (
