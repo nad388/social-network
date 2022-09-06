@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import styles from './ProfileInfo.module.css';
 
 const ProfileStatusWithHooks = (props) => {
@@ -9,6 +9,10 @@ const ProfileStatusWithHooks = (props) => {
 
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
+
+  useEffect(() => {
+    setStatus(props.status);
+  }, [props.status]); // говорим react, что мы зависим от props.status
 
   const activateEditMode = () => {
     setEditMode(true);
