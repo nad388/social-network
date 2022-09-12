@@ -6,7 +6,15 @@
     padding: 10px;
   }
 
-  /* .btn {
+  .contact {
+    padding-left: 10px;
+  }
+  .contactTitle {
+    margin-top: 10px;
+  }
+
+  .btn {
+    margin-bottom: 5px;
     background-color:  rgba(47, 248, 248, 0.644);
     max-width: 80px;
     max-height: 30px;
@@ -19,4 +27,4 @@
 .btn:hover {
     background-color: rgb(1, 5, 68);
     color: rgb(196, 253, 236);
-} */
+}
