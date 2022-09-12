@@ -1,7 +1,22 @@
 .userAvatar {
-    width: 150px;
+    max-width: 150px;
     border-radius: 50%;
   }
   .descriptionBlock {
     padding: 10px;
   }
+
+  /* .btn {
+    background-color:  rgba(47, 248, 248, 0.644);
+    max-width: 80px;
+    max-height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color: rgb(1, 5, 68);
+}
+.btn:hover {
+    background-color: rgb(1, 5, 68);
+    color: rgb(196, 253, 236);
+} */
