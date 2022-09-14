@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -20,8 +20,19 @@ const ProfileContainer = React.lazy(() =>
 const Login = React.lazy(() => import('./components/Login/Login'));
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert('Some error occured');
+    // console.error(promiseRejectionEvent);
+  };
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+  }
+  componentWillUnmount() {
+    window.removeEventListener(
+      'unhandledrejection',
+      this.catchAllUnhandledErrors
+    );
   }
   render() {
     if (!this.props.initialized) {
@@ -48,6 +59,11 @@ class App extends React.Component {
               <Route path="/news" element={<News />} />
               <Route path="/music" element={<Music />} />
               <Route path="/settings" element={<Settings />} />
+              <Route exact path="/" element={<Navigate to="/profile" />} />
+              <Route
+                path="*"
+                element={<div>404 Sorry, the page not found</div>}
+              />
             </Routes>
           </Suspense>
         </div>
